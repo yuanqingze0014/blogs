@@ -1,0 +1,60 @@
+.Header{
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  // display: grid;
+  // grid-template-columns: 100%;
+  // grid-template-rows: 100% ;
+}
+
+.logo{
+  // position: fixed;
+  // left: 0;
+  // top: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header-logo {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  animation: Header-logo-spin  2s linear infinite;
+  >img{
+    width: 100%;
+    height: 100%;
+  }
+} 
+
+.language{
+  // position: fixed;
+  // right: 0;
+  // top: 0;
+  height: 64px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes Header-logo-spin {
+  0% {
+    transform: scale(.8);
+  }
+  50%{
+    transform: scale(.5);
+
+  }
+  100%{
+    transform: scale(.8);
+  }
+}

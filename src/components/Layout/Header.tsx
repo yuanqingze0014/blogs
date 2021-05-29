@@ -1,42 +1,39 @@
-import React, { Fragment } from 'react'
-import { Menu, Dropdown, Layout } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import logo from '../../logo.svg';
+import "./Header.scss";
+import React, { useState } from 'react'
+import { observer } from "mobx-react";
 
-const { Header } = Layout;
+import { Switch } from 'antd';
+import useStore from '@/context/useStore';
+import Language from '@/components/Language/Index.tsx'
+import logo from '@/favicon.svg';
 
+const HeaderComponent: React.FC = observer((props) => {
+    const [collapsed, setCollapsed] = useState(false)
+    const { MenuStore } = useStore()
 
-const menu = (
-    <Menu>
-        <Menu.Item key="0">
-            <a href="https://www.antgroup.com">1st menu item</a>
-        </Menu.Item>
-        <Menu.Item key="1">
-            <a href="https://www.aliyun.com">2nd menu item</a>
-        </Menu.Item>
-        <Menu.Divider />
-        <Menu.Item key="3">3rd menu item</Menu.Item>
-    </Menu>
-);
+    const toggleCollapsed = () => {
+        setCollapsed(!collapsed)
+    };
 
-export default function HeaderCom() {
+    const changeMode = (value: boolean) => {
+        MenuStore.changeShowLayout(value ? 'vertical' : 'horizontal')
+    };
+
     return (
-        <Fragment>
-            <Header style={{ position: 'fixed', zIndex: 1, width: '100%', display: 'grid', gridTemplateColumns: '10% 80% 10%', gridTemplateRows: '100%' }}>
+        <header className="Header">
+            <div className="Menu-logo">
                 <div className="logo" >
                     <img src={logo} className="Header-logo" alt="logo" />
                 </div>
-                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                    <Menu.Item key="1">react 项目</Menu.Item>
-                    <Menu.Item key="2">vue 项目</Menu.Item>
-                    <Menu.Item key="3">nav 3</Menu.Item>
-                </Menu>
-                <Dropdown overlay={menu} trigger={['click']}>
-                    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                        Click me <DownOutlined />
-                    </a>
-                </Dropdown>
-            </Header>
-        </Fragment>
+                {/* <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
+                    {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
+                </Button> */}
+            </div>
+            <div className="language">
+                <Switch checkedChildren={"开启"} unCheckedChildren="关闭" defaultChecked={MenuStore.mode === "vertical"} onChange={changeMode} />
+                <Language />
+            </div>
+        </header>
     )
-}
+})
+export default HeaderComponent

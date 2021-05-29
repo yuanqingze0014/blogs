@@ -1,0 +1,34 @@
+.horizontalContainer{
+  height: 100%;
+  .horizontalHeader{
+    width: 100%;
+    height: 46px;
+    // background-color: #001529;
+  }
+  .verticalWrapper{
+    width: 85%;
+  }
+  .site-layout-background{
+      width: 100%;
+      height: 100%;
+  }
+}
+
+.verticalContainer{
+  height: 100%;
+  display: flex;
+  .verticalHeader{
+    width: 256px;
+    height:100%;
+    background-color: #001529;
+  }
+  .verticalWrapper{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+  .site-layout-background{
+    width: auto;
+    height: 100%;
+  }
+}

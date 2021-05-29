@@ -11,7 +11,7 @@ interface Iprops {
     routes: any //IRouerItem[]
 }
 
-const RouterView: React.FC<Iprops> = (props) => {
+const RouterView: React.FC<Iprops> = (props: { routes: any[]; }) => {
     // const { MainStore } = useStore();
     return <Switch>
         {
@@ -63,6 +63,5 @@ const RouterView: React.FC<Iprops> = (props) => {
 
     </Switch>
 }
-
 
 export default RouterView

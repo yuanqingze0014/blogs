@@ -1,8 +1,16 @@
-import { action, observable } from 'mobx'
-import { UserStoreType } from './type'
+import { action, observable } from "mobx";
+import { setCookie } from "@/utils/cookie.ts"
 
-const User = observable<UserStoreType>({
-    userInfo: {}
-})
+class User {
+    @observable UserInfo: any = {}
 
-export default User
+    @action setToken(params: string) {
+        setCookie('Authorization', params)
+    }
+
+    @action setUserInfo = (language: string) => {
+
+    }
+}
+
+export default User;
