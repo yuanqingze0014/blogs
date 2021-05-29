@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
+import path from "path";
 import reactRefresh from "@vitejs/plugin-react-refresh";
 // import vitePluginImp from "vite-plugin-imp";
-import path from "path";
+
 
 // import themePreprocessorPlugin, {
 //   getModulesScopeGenerater,
