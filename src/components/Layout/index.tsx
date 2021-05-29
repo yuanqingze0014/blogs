@@ -8,17 +8,16 @@ import Content from './Content'
 import TagTitle from './TagTitle'
 import RouterView from '@/router/routerView';
 import useStore from '@/context/useStore';
-import { IRouerItem } from '@/@type/router.ts'
-
+import menus from '@/router/menu.ts'
 const { Footer } = Layout;
 
 type Iprops = {
     // changeMode: (value: string) => void
-    routes: IRouerItem[]
 }
 
 const Index: React.FC = observer((props: Iprops) => {
     const { LanguageStore, MenuStore } = useStore();
+
     return (
         <Fragment>
             <Layout style={{ height: '100%' }}>
@@ -31,7 +30,7 @@ const Index: React.FC = observer((props: Iprops) => {
                     <div className={MenuStore.mode + 'Wrapper'}>
                         <TagTitle />
                         <div className="site-layout-background" >
-                            <RouterView routes={props.routes} />
+                            <RouterView routes={MenuStore.getMenuRoutes()} />
                         </div>
                     </div>
                 </div>

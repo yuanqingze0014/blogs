@@ -1,16 +1,10 @@
 import React, { Fragment, useEffect } from "react";
 import Layout from '@/components/Layout/Index.tsx'
-import { IRouerItem } from '@/@type/router.ts'
 
-type Iprops = {
-  routes: IRouerItem
-}
-
-const Home: React.FC = (props: Iprops) => {
-
+const Home: React.FC = (props) => {
   return (
     <Fragment  >
-      <Layout />
+      <Layout {...props} />
     </Fragment>
   );
 }

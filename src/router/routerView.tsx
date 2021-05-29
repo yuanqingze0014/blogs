@@ -16,6 +16,7 @@ const RouterView: React.FC<Iprops> = (props: { routes: any[]; }) => {
     return <Switch>
         {
             props.routes && props.routes.map((item: any) => {
+
                 // 页面重定向
                 if (item.redirect) {
                     return <Redirect key={item.path} from={item.path} to={item.redirect}></Redirect>
@@ -42,7 +43,6 @@ const RouterView: React.FC<Iprops> = (props: { routes: any[]; }) => {
                     //     //  获取用户权限信息
                     //     MainStore.getMenuListAction()
                     // }
-
                     if (item.children) {
                         return <item.component {...props} routes={item.children} meta={item.meta}></item.component>
                     } else {

@@ -1,6 +1,7 @@
 import { action, observable } from "mobx";
 import { HomeOutlined } from '@ant-design/icons'
 import storage from "@/utils/storage.ts"
+import menus from '@/router/menu.ts'
 
 type tagType = {
   name: string
@@ -28,6 +29,16 @@ class Menu {
     if (!isHas) {
       this.tagTitleList.push(params)
     }
+  }
+
+  @action getMenuRoutes = () => {
+    let data = []
+    menus.map(item => {
+      if (item.children) {
+        data.push(item.children)
+      }
+    })
+    return data.flat()
   }
 }
 

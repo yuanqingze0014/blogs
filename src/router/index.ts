@@ -2,8 +2,6 @@
 import menus from "./menu"
 import React from 'react';
 
-const Empty = React.lazy(() => import('@/components/Empty/Index.tsx'));
-
 const Login = React.lazy(() => import('@/page/Login/Login'));
 const Registry = React.lazy(() => import('@/page/Registry/Registry'))
 const Home = React.lazy(() => import('@/page/Home/Home'));
@@ -16,8 +14,8 @@ const Test2 = React.lazy(() => import('@/page/Home/Test2'))
 
 
 // // // 错误处理页面
-// const NoFound = React.lazy(() => import('../page/error/NoFound'));;
-// const NoServer = React.lazy(() => import('../page/error/NoFound'));;
+const NoFound = React.lazy(() => import('../page/error/NoFound'));;
+const NoServer = React.lazy(() => import('../page/error/NoFound'));;
 
 // const SetUpApp = React.lazy(() => import('../view/other/Setup'));
 
@@ -29,6 +27,7 @@ function getFirstRedirect(menus: any[]) {
 
 let routerConfig = {
   routes: [
+
     {
       path: '/login',
       component: Login
@@ -42,20 +41,15 @@ let routerConfig = {
       component: Home,
       children: []
     },
-
     // {
-    //     path: '/show',
-    //     component: ShowApp
+    //   path: '/',
+    //   redirect: `/home`,
+    //   // redirect: getFirstRedirect(menus)
     // },
     // {
     //   path: '/NoServer',
     //   component: NoServer
     // },
-    {
-      path: '/',
-      // redirect: `/home`,
-      redirect: getFirstRedirect(menus)
-    },
     // {
     //   path: '/NoFound',
     //   component: NoFound
@@ -66,6 +60,5 @@ let routerConfig = {
     // }
   ]
 }
-routerConfig.routes[2].children.push(...menus as [])
 export default routerConfig
 

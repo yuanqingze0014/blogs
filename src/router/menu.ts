@@ -2,10 +2,9 @@
 // import menus from "./routerMenu"
 import React from 'react';
 import { AppstoreOutlined, UserOutlined, ScheduleOutlined, TableOutlined, MergeCellsOutlined } from '@ant-design/icons';
-
+const Empty = React.lazy(() => import('@/components/Empty/Index.tsx'));
 const Test1Child = React.lazy(() => import('@/page/Home/Test1/Test1Child.tsx'))
 const Test1Child2 = React.lazy(() => import('@/page/Home/Test1/Test1Child2.tsx'))
-
 
 const Test2Child = React.lazy(() => import('@/page/Home/Test2/Index.tsx'))
 
