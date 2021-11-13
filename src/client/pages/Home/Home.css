@@ -1,0 +1,16 @@
+.home {
+  width: 100%;
+  height: 100%;
+  /* background-color: orangered; */
+  & .home-container {
+    width: 100%;
+    height: 500px;
+    background-color:rgba(0, 0, 0, 0.5);
+    & .container {
+      width: 100%;
+      height: 100%;
+      /* width: 100px;
+      height: 100px; */
+    }
+  }
+}

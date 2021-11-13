@@ -1,0 +1,127 @@
+.pdf-render-con {
+  position: relative;
+  width: 100%;
+  font-family: custom !important;
+  margin: 0px auto;
+  background-color: rgb(24, 26, 27);
+  box-shadow: 0 0 20px var(--shadowBlackColor);
+  & .pdf-page-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 16px;
+    position: absolute;
+    top: -32px;
+    right: 0;
+    /* right: -18px; */
+    z-index: 2;
+    & .current-page-num {
+      padding: 2px 6px;
+      color: #9e9e9e;
+      border: 1px solid #9e9e9e;
+      margin: 0;
+      border-radius: 6px;
+    }
+    & > div {
+      margin: 0 16px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &.disable {
+        color: var(--disableFcolor);
+      }
+    }
+  }
+  & .react-pdf__Document {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    & .react-pdf__message {
+      line-height: 200px;
+    }
+  }
+  & .react-pdf__Outline {
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px var(--shadowBlackColor);
+    flex: 0.22;
+    scrollbar-color: linear-gradient(to bottom, #ff8a00, #da1b60);
+    scrollbar-width: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #ff8a00, #da1b60);
+      border-radius: 10px;
+      -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25),
+        inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+    }
+    &::-webkit-scrollbar-track {
+      background: linear-gradient(
+        to right,
+        #201c29,
+        #201c29 1px,
+        #100e17 1px,
+        #100e17
+      );
+    }
+    & ul {
+      list-style: none;
+      list-style: none;
+      margin: 0;
+      padding: 0 12px;
+    }
+    & a {
+      text-align: left;
+      text-decoration: none;
+      display: block;
+      color: #877645;
+      line-height: 1.5;
+      font-size: 14px;
+      box-sizing: border-box;
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+  }
+  & .react-pdf__Page {
+    flex: 0.78;
+    display: flex;
+    box-shadow: 0 0 20px var(--shadowBlackColor);
+    justify-content: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    overflow: scroll;
+    scrollbar-color: linear-gradient(to bottom, #ff8a00, #da1b60);
+    scrollbar-width: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    &.react-pdf-page-custom {
+      flex: 1;
+    }
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #ff8a00, #da1b60);
+      border-radius: 10px;
+      -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25),
+        inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+    }
+    &::-webkit-scrollbar-track {
+      background: linear-gradient(
+        to right,
+        #201c29,
+        #201c29 1px,
+        #100e17 1px,
+        #100e17
+      );
+    }
+  }
+}

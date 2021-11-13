@@ -1,0 +1,171 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100vw;
+  min-width: 960px;
+  height: 100vh;
+  color: var(--text-primary-color);
+
+  & .asider {
+    width: var(--aside-width);
+    height: 100%;
+    background: #001529;
+    overflow: auto;
+    position: relative;
+    & .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      color: #ffffff;
+      font-size: 1.2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      & .logoTitle {
+        padding: 0 18px;
+      }
+      & img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+    }
+
+    & .logout{
+      width: 100%;
+      border-top: 1px solid var(--border-color);
+      color: var(--bg-code);
+      padding: 15px 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+
+    & .resourceCreate {
+      padding: 0 var(--aside-padding-horizontal);
+      margin: 12px 0;
+    }
+  }
+
+  & .main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    background-color: #eff2f5;
+    overflow: auto;
+
+    & header {
+      width: 100%;
+      padding: 16px;
+      border-bottom: 1px solid var(--border-color);
+      background: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & .menu{
+        width: 100px;
+      }
+      & .info {
+        flex: 1;
+        text-align: center;
+        font-size:24px;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        text-overflow:ellipsis; 
+        white-space: nowrap;
+        cursor: pointer;
+
+        & .github {
+          display: inline-block;
+          display: flex;
+          align-items: center;
+          margin-right: 12px;
+          color: inherit;
+          font-size: 24px;
+        }
+      }
+    }
+
+    & .content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      overflow: hidden;
+
+      & .header {
+        position: relative;
+        padding: 12px 24px;
+        background: #ffffff;
+        box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+        z-index: 100;
+
+        & .title {
+          margin: 12px 0 0;
+          color: rgba(0, 0, 0, 0.85);
+          overflow: hidden;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 32px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+
+      & main{
+        height:100%;
+      }
+
+      & >section {
+        flex: 1;
+        padding: 24px;
+        overflow: auto;
+      }
+      & main .footer {
+        padding-bottom: 10px;
+        color: rgba(0, 0, 0, 0.65);
+        text-align: center;
+
+        & ul.icons {
+          display: inline-flex;
+          flex-wrap: nowrap;
+          margin: 4px 0;
+
+          & li {
+            display: inline-block;
+            border-radius: 50%;
+            margin: 0 5px;
+            font-size: 24px;
+            text-align: center;
+
+            &:first-of-type {
+              margin-top: 1px;
+            }
+
+            &:hover {
+              color: var(--main-text-color);
+            }
+          }
+
+          & .github {
+            color: inherit;
+          }
+        }
+
+        & .copyright {
+          font-size: 10px;
+          line-height: 15px;
+        }
+        & p{
+          margin-bottom: 0em;
+        }
+      }
+    }
+  }
+}
