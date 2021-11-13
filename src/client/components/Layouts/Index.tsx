@@ -1,18 +1,24 @@
 import React, { useContext } from 'react'
 import { useLocation, useHistory, Link } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { Layout, Breadcrumb, Row, Col, Menu, Popconfirm } from 'antd'
+import { Layout, Breadcrumb, Row, Col, Menu, Popconfirm, Tag } from 'antd'
 import { Icon as LegacyIcon } from '@ant-design/compatible'
-import { CopyrightOutlined, GithubOutlined, ExportOutlined } from '@ant-design/icons'
+import { CopyrightOutlined, GithubOutlined, ExportOutlined, FacebookOutlined } from '@ant-design/icons'
 import { ISettingProps } from '@models/settingModels'
 import { settingStateSelector } from '@recoil/selector/settingSelector'
 import { menus, findActiveMenu } from '@router/index'
+import { FormattedMessage } from 'react-intl' /* react-intl imports */
+import zhCN from '@language/zh'
+import enUS from '@language/en'
+const message = {
+  en: enUS,
+  zh: zhCN
+}
 const { Sider, Content } = Layout
 const { SubMenu } = Menu
 import './Index.css'
 
-export const Layouts: React.FC<{ headerAppender?: React.ReactNode }> = (props) => {
-console.log(`%c 🏠 🚀 : props `, `font-size:14px;background-color:#da7df0;color:white;`, props);
+export const Layouts: React.FC<{ headerAppender?: React.ReactNode }> = props => {
   const { headerAppender, children } = props
   const [setting, setSettingAction] = useRecoilState<ISettingProps>(settingStateSelector)
   const location = useLocation()
@@ -27,6 +33,15 @@ console.log(`%c 🏠 🚀 : props `, `font-size:14px;background-color:#da7df0;co
     })
   }
 
+  const toggleLanguage = () => {
+    const locale = setting.locale === 'zh' ? 'en' : 'zh'
+    setSettingAction({
+      ...setting,
+      locale,
+      langauge: message[locale]
+    })
+  }
+
   const handleLogout = (): void => {
     history.replace(`/`)
   }
@@ -37,7 +52,9 @@ console.log(`%c 🏠 🚀 : props `, `font-size:14px;background-color:#da7df0;co
         <Link to={menu.path}>
           <span className={activeMenu && activeMenu.path === menu.path ? 'active' : ''}>
             <LegacyIcon type={menu.meta.icon} />
-            <span>{menu.meta.title}</span>
+            <span>
+              <FormattedMessage id={menu.meta.title} defaultMessage={menu.meta.title}></FormattedMessage>
+            </span>
           </span>
         </Link>
       </Menu.Item>
@@ -50,7 +67,11 @@ console.log(`%c 🏠 🚀 : props `, `font-size:14px;background-color:#da7df0;co
         .filter((m: myMenu.MenuItem) => !m.ignore)
         .map((menu: myMenu.MenuItem) => {
           return menu.children ? (
-            <SubMenu key={menu.path} icon={<LegacyIcon type={menu.meta.icon} />} title={menu.meta.title}>
+            <SubMenu
+              key={menu.path}
+              icon={<LegacyIcon type={menu.meta.icon} />}
+              title={<FormattedMessage id={menu.meta.title} defaultMessage={menu.meta.title}></FormattedMessage>}
+            >
               {menu.children.filter(m => !m.ignore).map(v => renderMenuItem(v))}
             </SubMenu>
           ) : (
@@ -64,22 +85,31 @@ console.log(`%c 🏠 🚀 : props `, `font-size:14px;background-color:#da7df0;co
       <Sider className="asider" trigger={null} collapsible={true} collapsed={setting.collapsed}>
         <div className="logo">
           {setting.systemFavicon && <img src={setting.systemFavicon} />}
-          {!setting.collapsed && <span style={{ marginLeft: 4 }}>BUG管理系统</span>}
+          {!setting.collapsed && (
+            <span style={{ marginLeft: 4 }}>
+              <FormattedMessage id={'systemTitle'} defaultMessage={'systemTitle'}></FormattedMessage>
+            </span>
+          )}
         </div>
         {MenuContent}
         <div className="logout">
-          <Popconfirm placement="leftBottom" title={'是否要退出'} onConfirm={handleLogout} okText="Yes" cancelText="No">
+          <Popconfirm placement="leftBottom" title={<FormattedMessage id={'logout'} defaultMessage={'logout'}></FormattedMessage> } onConfirm={handleLogout} okText="Yes" cancelText="No">
             <ExportOutlined />
           </Popconfirm>
         </div>
       </Sider>
       <Layout className="main">
         <header>
-          <Row>
-            <Col span={12}>
+          <Row gutter={24}>
+            <Col span={8}>
               <LegacyIcon className="trigger" type={setting.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={toggleCollapse} />
             </Col>
-            <Col span={12} style={{ textAlign: 'right' }}>
+            <Col span={8}>
+              <Tag icon={<FacebookOutlined />} color="#3b5999" onClick={() => toggleLanguage()}>
+                <FormattedMessage id={setting.locale} defaultMessage={setting.locale}></FormattedMessage>
+              </Tag>
+            </Col>
+            <Col span={8} style={{ textAlign: 'right' }}>
               <div className="info">
                 <a className="github" href="https://github.com/fantasticit/wipi" target="_blank" rel="noreferrer">
                   <GithubOutlined />
@@ -96,7 +126,9 @@ console.log(`%c 🏠 🚀 : props `, `font-size:14px;background-color:#da7df0;co
                 return (
                   <Breadcrumb.Item key={breadcrumb.path}>
                     <Link to={breadcrumb.path}>
-                      <span>{breadcrumb.meta!.title}</span>
+                      <span>
+                        <FormattedMessage id={breadcrumb.meta!.title} defaultMessage={breadcrumb.meta!.title}></FormattedMessage>
+                      </span>
                     </Link>
                   </Breadcrumb.Item>
                 )

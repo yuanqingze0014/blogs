@@ -1,6 +1,8 @@
 @import '../../theme/const.less';
 
 .common-loading {
-  text-align: center;
   background-color: @main-color;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }

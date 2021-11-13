@@ -1,7 +1,6 @@
 import * as React from 'react'
+import Routes from '@router/index'
 import { RecoilRoot } from 'recoil'
-import Routes from '../router/index'
-import { Route, Redirect } from 'react-router-dom'
 
 // type AppProps = {
 //   children: React.ReactChildren
@@ -21,6 +20,14 @@ import { Route, Redirect } from 'react-router-dom'
 // }
 
 class App extends React.Component {
+  constructor(props: any) {
+    super(props)
+  }
+
+  componentDidCatch(error: any, errorInfo: any) {
+    console.log('==============', error, errorInfo)
+  }
+
   render() {
     return (
       <>

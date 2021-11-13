@@ -36,7 +36,8 @@ module.exports = {
       '@utils': resolve(process.cwd(), './src/client/utils'),
       '@recoil': resolve(process.cwd(), './src/client/recoil'),
       '@hooks': resolve(process.cwd(), './src/client/hooks'),
-      '@api': resolve(process.cwd(), './src/client/api')
+      '@api': resolve(process.cwd(), './src/client/api'),
+      '@language': resolve(process.cwd(), './src/client/language'),
     }
   },
   plugins: []

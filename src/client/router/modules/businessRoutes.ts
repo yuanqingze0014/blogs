@@ -1,64 +1,68 @@
 import { lazy } from 'react'
 import { Layouts } from '@components/Layouts'
-const Home = lazy(() => import('@pages/home/Home'))
-const FilesIndexPage = lazy(() => import('@pages/Files/Index'))
-const NewsIndexPage = lazy(() => import('@pages/News/Index'))
-const HistoryPage = lazy(() => import('@pages/History/History'))
-const SettingPage = lazy(() => import('@pages/Setting/Setting'))
-
+// const Home = lazy(() => import('@pages/home/Home'))
+// const FilesIndexPage = lazy(() => import('@pages/Files/Index'))
+// const NewsIndexPage = lazy(() => import('@pages/News/Index'))
+// const VisitPage = lazy(() => import('@pages/Visit/Visit'))
+// const SettingPage = lazy(() => import('@pages/Setting/Setting'))
+import Home from '@pages/Home/Home'
+import FilesIndexPage from '@pages/Files/Index'
+import NewsIndexPage from '@pages/News/Index'
+import VisitPage from '@pages/Visit/Visit'
+import SettingPage from '@pages/Setting/Setting'
 
 export const businessRoutes: myMenu.MenuItem[] = [
   {
-    component: Home,
     path: '/working',
+    component: Home,
     meta: {
-      title: '工作台',
+      title: 'menus.working',
       icon: 'dashboard'
     },
   },
   {
-    component: Layouts,
     path: '/file',
+    redirect:'/file/index',
     meta: {
-      title: '文件管理',
+      title: 'menus.file',
       icon: 'folder-open'
     },
     children: [
       {
         path: '/file/index',
         component: FilesIndexPage,
-        meta: { title: '图片管理', icon: 'folder-open' }
+        meta: { title: 'menus.file.index', icon: 'folder-open' }
       }
     ]
   },
   {
-    component: Layouts,
     path: '/news',
+    redirect:'/news/index',
     meta: {
-      title: '消息管理',
+      title: 'menus.news',
       icon: 'message'
     },
     children: [
       {
         path: '/news/index',
         component: NewsIndexPage,
-        meta: { title: '消息配置管理', icon: 'folder-open' }
+        meta: { title: 'menus.news.index', icon: 'folder-open' }
       }
     ]
   },
   {
-    component: HistoryPage,
-    path: '/history',
+    path: '/visit',
+    component: VisitPage,
     meta: {
-      title: '访问统计',
+      title: 'menus.visit',
       icon: 'project'
     },
   },
   {
-    component: SettingPage,
     path: '/setting',
+    component: SettingPage,
     meta: {
-      title: '系统设置',
+      title: 'menus.setting',
       icon: 'setting'
     },
   }

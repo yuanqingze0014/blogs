@@ -1,6 +1,7 @@
 import { selector } from 'recoil'
 import { settingStateAtom } from '../atoms/settingAtom'
 import { initSettingParams, ISettingProps } from '@models/settingModels'
+
 export const settingStateSelector = selector({
   key: 'settingStateSelector',
   get: ({ get }) => {

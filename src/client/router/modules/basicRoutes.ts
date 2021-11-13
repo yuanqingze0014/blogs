@@ -1,12 +1,27 @@
 import { lazy } from 'react'
-const BookInfo = lazy(() => import('@pages/book/Index'))
-
-const Error404 = lazy(() => import('@pages/error/Error404'))
+// const BookInfo = lazy(() => import('@pages/book/Index'))
+// const Login = lazy(() => import('@pages/Login/Login'))
+// const Error404 = lazy(() => import('@pages/error/Error404'))
+import BookInfo from '@pages/Book/Index'
+import Login from '@pages/Login/Login'
+import Error404 from '@pages/Error/Error404'
 
 export const basicRoutes: myMenu.MenuItem[] = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/login',
+    meta: {
+      title: '',
+      icon: ''
+    }
+  },
+  {
+    path: '/login',
+    component: Login,
+    meta: {
+      title: 'Login',
+      icon: 'login'
+    }
   },
   {
     path: '/book',
