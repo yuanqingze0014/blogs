@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import { useLocation, useHistory, Link } from 'react-router-dom'
-import { useRecoilState } from 'recoil'
-import { Layout, Breadcrumb, Row, Col, Menu, Popconfirm, Tag } from 'antd'
 import { Icon as LegacyIcon } from '@ant-design/compatible'
 import { CopyrightOutlined, GithubOutlined, ExportOutlined, FacebookOutlined } from '@ant-design/icons'
+import { Layout, Breadcrumb, Row, Col, Menu, Popconfirm, Tag } from 'antd'
+import { FormattedMessage } from 'react-intl' /* reßact-intl imports */
+import { useRecoilState } from 'recoil'
 import { ISettingProps } from '@models/settingModels'
 import { settingStateSelector } from '@recoil/selector/settingSelector'
 import { menus, findActiveMenu } from '@router/index'
-import { FormattedMessage } from 'react-intl' /* react-intl imports */
+
 import zhCN from '@language/zh'
 import enUS from '@language/en'
 const message = {
@@ -93,7 +94,13 @@ export const Layouts: React.FC<{ headerAppender?: React.ReactNode }> = props => 
         </div>
         {MenuContent}
         <div className="logout">
-          <Popconfirm placement="leftBottom" title={<FormattedMessage id={'logout'} defaultMessage={'logout'}></FormattedMessage> } onConfirm={handleLogout} okText="Yes" cancelText="No">
+          <Popconfirm
+            placement="leftBottom"
+            title={<FormattedMessage id={'logout'} defaultMessage={'logout'}></FormattedMessage>}
+            onConfirm={handleLogout}
+            okText="Yes"
+            cancelText="No"
+          >
             <ExportOutlined />
           </Popconfirm>
         </div>
@@ -137,26 +144,24 @@ export const Layouts: React.FC<{ headerAppender?: React.ReactNode }> = props => 
             <div className="title">{activeMenu && activeMenu.label}</div>
             {headerAppender && <div>{headerAppender}</div>}
           </header>
-          <main>
-            {children}
-            <footer>
-              <ul className="icons">
-                <li>
-                  <a className="github" href="https://github.com/fantasticit/wipi" target="_blank" rel="noreferrer">
-                    <GithubOutlined />
-                  </a>
-                </li>
-              </ul>
-              <div className="copyright">
-                <p>
-                  Copyright <CopyrightOutlined /> {new Date().getFullYear()} Designed by
-                  {/* <a href="https://github.com/fantasticit/wipi" target="_blank" rel="noreferrer">
+          <main>{children}</main>
+          <footer>
+            <div className="">
+              <p>
+                Copyright <CopyrightOutlined /> {new Date().getFullYear()} Designed by  
+                {/* <a href="https://github.com/fantasticit/wipi" target="_blank" rel="noreferrer">
                     Fantasticit.
                   </a> */}
-                </p>
-              </div>
-            </footer>
-          </main>
+              </p>
+            </div>
+            <ul className="icons">
+              <li>
+                <a className="github" href="https://github.com/PeopleWhoListenToStories" target="_blank" rel="noreferrer">
+                  <GithubOutlined />
+                </a>
+              </li>
+            </ul>
+          </footer>
         </Content>
       </Layout>
     </Layout>

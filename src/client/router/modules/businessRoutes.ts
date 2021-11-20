@@ -60,7 +60,7 @@ export const businessRoutes: myMenu.MenuItem[] = [
   },
   {
     path: '/setting',
-    component: SettingPage,
+    component: FilesIndexPage,
     meta: {
       title: 'menus.setting',
       icon: 'setting'

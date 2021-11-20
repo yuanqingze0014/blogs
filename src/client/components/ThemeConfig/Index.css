@@ -1,0 +1,41 @@
+.theme-config-container {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  color: var(--primary-color);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed var(--primary-color);
+  .ant-breadcrumb-link {
+    color: var(--primary-color);
+  }
+  .ant-pro-setting-drawer-block-checkbox {
+    display: flex;
+    min-height: 42px;
+    .ant-pro-setting-drawer-block-checkbox-item {
+      position: relative;
+      width: 44px;
+      height: 36px;
+      margin-right: 16px;
+      overflow: hidden;
+      background-color: #f0f2f5;
+      border-radius: 4px;
+      box-shadow: 0 1px 2.5px 0 rgb(0 0 0 / 18%);
+      cursor: pointer;
+    }
+  }
+  .ant-pro-setting-drawer-box {
+    padding: 30px 0;
+  }
+  .ant-drawer-body .theme-close {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

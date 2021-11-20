@@ -35,7 +35,7 @@
     & .logout{
       width: 100%;
       border-top: 1px solid var(--border-color);
-      color: var(--bg-code);
+      color: var(--primary-color);
       padding: 15px 0;
       position: absolute;
       left: 0;
@@ -118,8 +118,9 @@
         }
       }
 
-      & main{
+      & >main{
         height:100%;
+        padding: 20px;
       }
 
       & >section {
@@ -127,11 +128,12 @@
         padding: 24px;
         overflow: auto;
       }
-      & main .footer {
+      & footer {
         padding-bottom: 10px;
         color: rgba(0, 0, 0, 0.65);
-        text-align: center;
-
+        display: flex;
+        justify-content:center;
+        align-items: center;
         & ul.icons {
           display: inline-flex;
           flex-wrap: nowrap;
@@ -160,7 +162,7 @@
 
         & .copyright {
           font-size: 10px;
-          line-height: 15px;
+          /* line-height: 15px; */
         }
         & p{
           margin-bottom: 0em;

@@ -76,6 +76,15 @@ const zh = {
   'menus.news.index': '消息列表',
   'menus.visit': '访问统计',
   'menus.setting': '系统设置',
-  'logout':'是否要退出'
+  'logout':'是否要退出',
+  'upload.text':'点击选择文件或将文件拖拽到此处',
+  'upload.hint':'支持单个或批量上传',
+  'button.cancel':'取消',
+  'button.delete':'删除',
+  'button.ok':'确认',
+  'button.submit':'提交',
+  'button.close':'关闭',
+  'drawer.title':'文件信息',
+  'card.description':'上传于',
 }
 export default zh

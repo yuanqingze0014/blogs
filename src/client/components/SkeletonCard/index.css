@@ -1,0 +1,22 @@
+.ant-card {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  & .ant-card-body {
+    flex: 1;
+    padding: 24px 24px 0 24px;
+  }
+}
+.ant-card-meta {
+  padding: 10px 0;
+}
+.and-card-image {
+  width: 100%;
+  height: calc(100% - 80px);
+  & img {
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}

@@ -76,6 +76,15 @@ const en = {
   'menus.news.index': 'newsList',
   'menus.visit': 'visit',
   'menus.setting': 'setting',
-  'logout':'If you want to quit'
+  'logout':'If you want to quit',
+  'upload.text':'Click or drag file to this area to upload',
+  'upload.hint':'Support for a single or bulk upload',
+  'button.cancel':'Cancel',
+  'button.delete':'Delete',
+  'button.ok':'OK',
+  'button.submit':'Submit',
+  'button.close':'Close',
+  'drawer.title':'File info',
+  'card.description':'Upload to',
 }
 export default en

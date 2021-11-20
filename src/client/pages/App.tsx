@@ -1,6 +1,8 @@
 import * as React from 'react'
 import Routes from '@router/index'
 import { RecoilRoot } from 'recoil'
+// compoonents
+import { ThemeConfig } from '@components/ThemeConfig'
 
 // type AppProps = {
 //   children: React.ReactChildren
@@ -33,6 +35,7 @@ class App extends React.Component {
       <>
         <RecoilRoot>
           <Routes />
+          <ThemeConfig />
         </RecoilRoot>
       </>
     )
