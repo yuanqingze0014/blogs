@@ -72,7 +72,6 @@
         width: 100px;
       }
       & .info {
-        flex: 1;
         text-align: center;
         font-size:24px;
         font-weight: bold;
@@ -81,6 +80,7 @@
         text-overflow:ellipsis; 
         white-space: nowrap;
         cursor: pointer;
+        display: flex;
 
         & .github {
           display: inline-block;
