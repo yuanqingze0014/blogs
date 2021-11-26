@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { Space, Tooltip, Table } from 'antd'
+import { Space, Tooltip, Table, Button } from 'antd'
 import { TableList } from '@components/TableList/TableList'
 import { InfoCircleOutlined } from '@ant-design/icons'
 
@@ -94,7 +94,10 @@ const VisitPage: React.FC = () => {
               </div>
             ),
             fixed: 'left',
-            dataIndex: 'url'
+            dataIndex: 'url',
+            render: (text: string) => {
+              return <a herf={text} >{text}</a>
+            }
           },
           {
             title: 'Ip',

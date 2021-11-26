@@ -1,0 +1,15 @@
+
+/* .container > * {
+  background-color: var(--background-color);
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+} */
+
+/* @media screen and (max-width: var(--container)) {
+  .container {
+    width: 100% !important;
+  }
+  .container > * {
+    border-radius: 0 !important;
+  }
+} */
